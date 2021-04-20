@@ -1,16 +1,25 @@
-import React, { useState } from "react";
-import { withRouter } from "react-router-dom";
-import { loginUser } from "../../../_actions/user_actions";
+import React, { useState } from 'react';
+import { withRouter } from 'react-router-dom';
+import { loginUser } from '../../../_actions/user_actions';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
-import { Form, Icon, Input, Button, Checkbox, Typography } from 'antd';
-import { useDispatch } from "react-redux";
+import { Form, Icon, Input, Button, Checkbox } from 'antd';
+import { useDispatch } from 'react-redux';
 
-const { Title } = Typography;
+const formItemLayout = {
+  labelCol: {
+    xs: { span: 24 },
+    sm: { span: 8 },
+  },
+  wrapperCol: {
+    xs: { span: 24 },
+    sm: { span: 16 },
+  },
+};
 
 function LoginPage(props) {
   const dispatch = useDispatch();
-  const rememberMeChecked = localStorage.getItem("rememberMe") ? true : false;
+  const rememberMeChecked = localStorage.getItem('rememberMe') ? true : false;
 
   const [formErrorMessage, setFormErrorMessage] = useState('')
   const [rememberMe, setRememberMe] = useState(rememberMeChecked)
@@ -19,7 +28,7 @@ function LoginPage(props) {
     setRememberMe(!rememberMe)
   };
 
-  const initialEmail = localStorage.getItem("rememberMe") ? localStorage.getItem("rememberMe") : '';
+  const initialEmail = localStorage.getItem('rememberMe') ? localStorage.getItem('rememberMe') : '';
 
   return (
     <Formik
@@ -29,11 +38,11 @@ function LoginPage(props) {
       }}
       validationSchema={Yup.object().shape({
         email: Yup.string()
-          .email('Email is invalid')
-          .required('Email is required'),
+          .email('*Email is invalid')
+          .required('*Email is required'),
         password: Yup.string()
-          .min(6, 'Password must be at least 6 characters')
-          .required('Password is required'),
+          .min(6, '*Password must be at least 6 characters')
+          .required('*Password is required'),
       })}
       onSubmit={(values, { setSubmitting }) => {
         setTimeout(() => {
@@ -51,7 +60,7 @@ function LoginPage(props) {
                 } else {
                   localStorage.removeItem('rememberMe');
                 }
-                props.history.push("/");
+                props.history.push('/');
               } else {
                 setFormErrorMessage('Check out your Account or Password again')
               }
@@ -59,7 +68,7 @@ function LoginPage(props) {
             .catch(err => {
               setFormErrorMessage('Check out your Account or Password again')
               setTimeout(() => {
-                setFormErrorMessage("")
+                setFormErrorMessage('')
               }, 3000);
             });
           setSubmitting(false);
@@ -79,17 +88,17 @@ function LoginPage(props) {
           handleReset,
         } = props;
         return (
-          <div className="app">
+          <div className='container'>
 
-            <Title level={2}>Log In</Title>
-            <form onSubmit={handleSubmit} style={{ width: '350px' }}>
+            <div className='title'>Sign In</div>
+            <Form style={{ minWidth: '375px' }} {...formItemLayout} onSubmit={handleSubmit}>
 
               <Form.Item required>
                 <Input
-                  id="email"
-                  prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
-                  placeholder="Enter your email"
-                  type="email"
+                  id='email'
+                  prefix={<Icon type='user' style={{ color: 'rgba(0,0,0,.25)' }} />}
+                  placeholder='　Enter your email'
+                  type='email'
                   value={values.email}
                   onChange={handleChange}
                   onBlur={handleBlur}
@@ -98,16 +107,16 @@ function LoginPage(props) {
                   }
                 />
                 {errors.email && touched.email && (
-                  <div className="input-feedback">{errors.email}</div>
+                  <div className='feedback'>{errors.email}</div>
                 )}
               </Form.Item>
 
               <Form.Item required>
                 <Input
-                  id="password"
-                  prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
-                  placeholder="Enter your password"
-                  type="password"
+                  id='password'
+                  prefix={<Icon type='lock' style={{ color: 'rgba(0,0,0,.25)' }} />}
+                  placeholder='　Enter your password'
+                  type='password'
                   value={values.password}
                   onChange={handleChange}
                   onBlur={handleBlur}
@@ -116,7 +125,7 @@ function LoginPage(props) {
                   }
                 />
                 {errors.password && touched.password && (
-                  <div className="input-feedback">{errors.password}</div>
+                  <div className='feedback'>{errors.password}</div>
                 )}
               </Form.Item>
 
@@ -125,18 +134,18 @@ function LoginPage(props) {
               )}
 
               <Form.Item>
-                <Checkbox id="rememberMe" onChange={handleRememberMe} checked={rememberMe} >Remember me</Checkbox>
-                <a className="login-form-forgot" href="/reset_user" style={{ float: 'right' }}>
+                <Checkbox id='rememberMe' onChange={handleRememberMe} checked={rememberMe} >Remember me</Checkbox>
+                <a className='login-form-forgot' href='/reset_user' style={{ float: 'right' }}>
                   forgot password
                   </a>
                 <div>
-                  <Button type="primary" htmlType="submit" className="login-form-button" style={{ minWidth: '100%' }} disabled={isSubmitting} onSubmit={handleSubmit}>
-                    Log in
+                  <Button className='yellowButton' htmlType='submit' disabled={isSubmitting} onSubmit={handleSubmit}>
+                    SIGNIN
                 </Button>
                 </div>
-                Or <a href="/register">register now!</a>
+                Or <a href='/register'>Register now</a>
               </Form.Item>
-            </form>
+            </Form>
           </div>
         );
       }}

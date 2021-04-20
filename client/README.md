@@ -1,1 +1,2 @@
-CLIENT
+- 로고 추가
+- CSS 추가 및 andtd css 일부 수정

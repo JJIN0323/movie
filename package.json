@@ -1,7 +1,7 @@
 {
-  "name": "react-boiler-plate",
+  "name": "example",
   "version": "1.0.0",
-  "description": "react boiler plate",
+  "description": "node express mongoDB",
   "main": "index.js",
   "engine": {
     "node": "10.16.0",
@@ -11,9 +11,9 @@
     "start": "node server/index.js",
     "backend": "nodemon server/index.js",
     "frontend": "npm run start --prefix client",
-    "dev": "concurrently \"npm run backend\" \"npm run start --prefix client\""
+    "both": "concurrently \"npm run backend\" \"npm run start --prefix client\""
   },
-  "author": "John ahn",
+  "author": "HYEJIN LIM",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^3.0.6",
