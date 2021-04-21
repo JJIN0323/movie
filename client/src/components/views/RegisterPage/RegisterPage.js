@@ -1,15 +1,15 @@
-import React from 'react';
-import moment from 'moment';
-import { Formik } from 'formik';
-import * as Yup from 'yup';
-import { registerUser } from '../../../_actions/user_actions';
-import { useDispatch } from 'react-redux';
+import React from 'react'
+import moment from 'moment'
+import { Formik } from 'formik'
+import * as Yup from 'yup'
+import { registerUser } from '../../../_actions/user_actions'
+import { useDispatch } from 'react-redux'
 
 import {
   Form,
   Input,
   Button,
-} from 'antd';
+} from 'antd'
 
 const formItemLayout = {
   labelCol: {
@@ -20,16 +20,16 @@ const formItemLayout = {
     xs: { span: 24 },
     sm: { span: 8 },
   },
-};
+}
 const tailFormItemLayout = {
   wrapperCol: {
     xs: { span: 24 },
     sm: { span: 8 },
   },
-};
+}
 
 function RegisterPage(props) {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch()
   return (
 
     <Formik
@@ -64,18 +64,18 @@ function RegisterPage(props) {
             name: values.name,
             lastname: values.lastname,
             image: `http://gravatar.com/avatar/${moment().unix()}?d=identicon`
-          };
+          }
 
           dispatch(registerUser(dataToSubmit)).then(response => {
             if (response.payload.success) {
-              props.history.push('/login');
+              props.history.push('/login')
             } else {
               alert(response.payload.err.errmsg)
             }
           })
 
-          setSubmitting(false);
-        }, 500);
+          setSubmitting(false)
+        }, 500)
       }}
     >
       {props => {
@@ -89,11 +89,11 @@ function RegisterPage(props) {
           handleBlur,
           handleSubmit,
           handleReset,
-        } = props;
+        } = props
         return (
           <div className='container'>
             <div className='title'>Sign Up</div>
-            <p className='subTitle'>Welcome to All movie information</p>
+            <p className='subTitle'>Welcome to All movie reviews</p>
             <Form style={{ minWidth: '375px' }} {...formItemLayout} onSubmit={handleSubmit} >
 
               <Form.Item required>
@@ -190,11 +190,11 @@ function RegisterPage(props) {
               </Form.Item>
             </Form>
           </div>
-        );
+        )
       }}
     </Formik>
-  );
-};
+  )
+}
 
 
 export default RegisterPage

@@ -1,6 +1,6 @@
 /* 2021-04-16 HYEJIN */
 
-@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@200;300;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@100;200;300;500&display=swap');
 
 /* RESETS */
 
@@ -165,6 +165,15 @@ h2 {
     padding: 0 0 1rem 0;
 }
 
+.thinTitle {
+    color: #282828;
+    font-weight: 100;
+    font-size: 4rem;
+    text-align: center;
+    padding: 0;
+    letter-spacing: 0.1rem;
+}
+
 /* WRAP */
 
 .wrap {
@@ -228,7 +237,13 @@ h2 {
 .floatRight {
     float: right;
 }
+.paddingTop {
+    padding-top: 3rem;
+}
 
+.marginTop {
+    margin-top: 3rem;
+}
 
 /* FORM */
 
@@ -549,9 +564,9 @@ button.yellowButton,
     border-radius: 0;
 }
 
-input[type="button"].yellowButton:hover,
-button.yellowButton:hover,
-.button.yellowButton:hover {
+input[type="button"].yellowButton:hover, input[type="button"].yellowButton:focus, input[type="button"].yellowButton:active,
+button.yellowButton:hover, button.yellowButton:focus, button.yellowButton:active,
+.button.yellowButton:hover, .button.yellowButton:focus,.button.yellowButton:active {
     color: #ffffff;
     background: #ebbc40;
     border: 1px solid #ebbc40;
@@ -702,31 +717,13 @@ li.ant-menu-item.ant-menu-item-selected::after {
     border-color: #9c6830 !important;
 }
 
-/* INDEX - MAIN IMAGE */
+/* INDEX - GridImage COLUMN */
 
-.mainImage {
-    text-align: right;
-    padding-bottom: 3em;
-    margin-bottom: 3em;
-    border-bottom: 1px solid #cccccc;
-}
-
-.wrapper {
-  margin: 0;
-}
-
-/* INDEX - PORTFOLIO COLUMN */
-
-.portfolioItem {
+.GridItem {
     width: 100%;
-    margin-bottom: 3em;
 }
 
-.portfolioItem:hover {
-    cursor: pointer;
-}
-
-.portfolioItem > .portfolioItemImg {
+.GridItem > .GridItemImg {
   display: flex;
   -webkit-justify-content: center;
   -moz-justify-content: center;
@@ -736,51 +733,72 @@ li.ant-menu-item.ant-menu-item-selected::after {
   -moz-align-items: center;
   -ms-align-items: center;
   align-items: center;
-  height: 20em;
+  height: 35em;
   overflow: hidden;
   background: rgba(185, 173, 157, 0.3);
 }
 
-.portfolioItem > .portfolioItemImg > img {
+.GridItem > .GridItemImg > a > img {
+    width: 22.5rem !important;
+}
+
+/* Grid Image Hover animation */
+
+.description {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 60%;
+    color: #ffffff;
+    padding: 1.2rem 1.2rem;
+    text-align: center;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    transition: all 0.20s linear 0s;
+    -o-transition: all 0.20s linear 0s;
+    -ms-transition: all 0.20s linear 0s;
+    -moz-transition: all 0.20s linear 0s;
+    -webkit-transition: all 0.20s linear 0s;
+    transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+}
+
+.description > p {
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.description > span {
+    font-size: 0.8rem;
+    font-weight: 300;
+    letter-spacing: 0.1rem;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
     width: 100%;
-    transform: scale(1) translateY(0px);
-    transition: all 300ms ease;
+    transition: all 0.20s linear 0s;
+    -o-transition: all 0.20s linear 0s;
+    -ms-transition: all 0.20s linear 0s;
+    -moz-transition: all 0.20s linear 0s;
+    -webkit-transition: all 0.20s linear 0s;
+    transform-style: preserve-3d;
+    -o-transform-style: preserve-3d;
+    -ms-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    -webkit-transform-style: preserve-3d;
+    background: rgba(228, 166, 0, 1);
+    cursor: pointer;
 }
 
-.portfolioItem > .portfolioItemText {
-    padding: 0.5em 0;
-    text-align: left;
-    transform: translateY(0px);
-    transition: all 300ms ease;
-}
-
-.portfolioItem > .portfolioItemText > span.title {
-    display: block;
-    font-weight: bold;
-    font-size: 11pt;
-    line-height: 2rem;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    overflow: hidden;
-}
-
-.portfolioItem > .portfolioItemText > div.ellipsis {
-    height: 2.5rem;
-    font-size: 9pt;
-    overflow: hidden;
-}
-
-.portfolioItem > .portfolioItemText > div.hashtag {
-    font-size: 8pt;
-    color: #916f54;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    overflow: hidden;
-}
-
-.portfolioItem > .portfolioItemText > div.hashtag::before {
-    content: '\f292';
-    padding-right: 0.5rem;
+.overlay:hover > .description {
+    top: 50%;
 }
 
 /* BLOG - POST COLUMN */

@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
-import { withRouter } from 'react-router-dom';
-import { loginUser } from '../../../_actions/user_actions';
-import { Formik } from 'formik';
-import * as Yup from 'yup';
-import { Form, Icon, Input, Button, Checkbox } from 'antd';
-import { useDispatch } from 'react-redux';
+import React, { useState } from 'react'
+import { withRouter } from 'react-router-dom'
+import { loginUser } from '../../../_actions/user_actions'
+import { Formik } from 'formik'
+import * as Yup from 'yup'
+import { Form, Icon, Input, Button, Checkbox } from 'antd'
+import { useDispatch } from 'react-redux'
 
 const formItemLayout = {
   labelCol: {
@@ -15,20 +15,20 @@ const formItemLayout = {
     xs: { span: 24 },
     sm: { span: 8 },
   },
-};
+}
 
 function LoginPage(props) {
-  const dispatch = useDispatch();
-  const rememberMeChecked = localStorage.getItem('rememberMe') ? true : false;
+  const dispatch = useDispatch()
+  const rememberMeChecked = localStorage.getItem('rememberMe') ? true : false
 
   const [formErrorMessage, setFormErrorMessage] = useState('')
   const [rememberMe, setRememberMe] = useState(rememberMeChecked)
 
   const handleRememberMe = () => {
     setRememberMe(!rememberMe)
-  };
+  }
 
-  const initialEmail = localStorage.getItem('rememberMe') ? localStorage.getItem('rememberMe') : '';
+  const initialEmail = localStorage.getItem('rememberMe') ? localStorage.getItem('rememberMe') : ''
 
   return (
     <Formik
@@ -49,18 +49,18 @@ function LoginPage(props) {
           let dataToSubmit = {
             email: values.email,
             password: values.password
-          };
+          }
 
           dispatch(loginUser(dataToSubmit))
             .then(response => {
               if (response.payload.loginSuccess) {
-                window.localStorage.setItem('userId', response.payload.userId);
+                window.localStorage.setItem('userId', response.payload.userId)
                 if (rememberMe === true) {
-                  window.localStorage.setItem('rememberMe', values.id);
+                  window.localStorage.setItem('rememberMe', values.id)
                 } else {
-                  localStorage.removeItem('rememberMe');
+                  localStorage.removeItem('rememberMe')
                 }
-                props.history.push('/');
+                props.history.push('/')
               } else {
                 setFormErrorMessage('Check out your Account or Password again')
               }
@@ -69,10 +69,10 @@ function LoginPage(props) {
               setFormErrorMessage('Check out your Account or Password again')
               setTimeout(() => {
                 setFormErrorMessage('')
-              }, 3000);
-            });
-          setSubmitting(false);
-        }, 500);
+              }, 3000)
+            })
+          setSubmitting(false)
+        }, 500)
       }}
     >
       {props => {
@@ -86,12 +86,12 @@ function LoginPage(props) {
           handleBlur,
           handleSubmit,
           handleReset,
-        } = props;
+        } = props
         return (
           <div className='container'>
 
             <div className='title'>Sign In</div>
-            <p className='subTitle'>Welcome to All movie information</p>
+            <p className='subTitle'>Welcome to All movie reviews</p>
             <Form style={{ minWidth: '375px' }} {...formItemLayout} onSubmit={handleSubmit}>
 
               <Form.Item required>
@@ -148,12 +148,12 @@ function LoginPage(props) {
               </Form.Item>
             </Form>
           </div>
-        );
+        )
       }}
     </Formik>
-  );
-};
+  )
+}
 
-export default withRouter(LoginPage);
+export default withRouter(LoginPage)
 
 
