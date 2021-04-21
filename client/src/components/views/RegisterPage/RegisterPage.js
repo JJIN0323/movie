@@ -18,13 +18,13 @@ const formItemLayout = {
   },
   wrapperCol: {
     xs: { span: 24 },
-    sm: { span: 16 },
+    sm: { span: 8 },
   },
 };
 const tailFormItemLayout = {
   wrapperCol: {
     xs: { span: 24 },
-    sm: { span: 16 },
+    sm: { span: 8 },
   },
 };
 
@@ -93,12 +93,13 @@ function RegisterPage(props) {
         return (
           <div className='container'>
             <div className='title'>Sign Up</div>
+            <p className='subTitle'>Welcome to All movie information</p>
             <Form style={{ minWidth: '375px' }} {...formItemLayout} onSubmit={handleSubmit} >
 
               <Form.Item required>
                 <Input
                   id='name'
-                  placeholder='Enter your name'
+                  placeholder='Name'
                   type='text'
                   value={values.name}
                   onChange={handleChange}
@@ -115,7 +116,7 @@ function RegisterPage(props) {
               <Form.Item required>
                 <Input
                   id='lastName'
-                  placeholder='Enter your Last Name'
+                  placeholder='Last Name'
                   type='text'
                   value={values.lastName}
                   onChange={handleChange}
@@ -133,7 +134,7 @@ function RegisterPage(props) {
               {/* validateStatus={errors.email && touched.email ? 'error' : 'success'} */}
                 <Input
                   id='email'
-                  placeholder='Enter your Email'
+                  placeholder='Email'
                   type='email'
                   value={values.email}
                   onChange={handleChange}
@@ -151,7 +152,7 @@ function RegisterPage(props) {
                 {/* validateStatus={errors.password && touched.password ? 'error' : 'success'} */}
                 <Input
                   id='password'
-                  placeholder='Enter your password'
+                  placeholder='Password'
                   type='password'
                   value={values.password}
                   onChange={handleChange}
@@ -168,7 +169,7 @@ function RegisterPage(props) {
               <Form.Item required hasFeedback>
                 <Input
                   id='confirmPassword'
-                  placeholder='Enter your confirmPassword'
+                  placeholder='confirmPassword'
                   type='password'
                   value={values.confirmPassword}
                   onChange={handleChange}

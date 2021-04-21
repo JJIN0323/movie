@@ -1,6 +1,6 @@
 /* 2021-04-16 HYEJIN */
 
-@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@200;300;500&display=swap');
 
 /* RESETS */
 
@@ -119,15 +119,12 @@ p {
     margin: 0 0 0.5em 0;
 }
 
-p.title {
-    font-weight: bold;
-}
-
-p.title::before {
-    content: '\f292';
-    color: #282828;
-    font-weight: normal;
-    padding-right: 0.7em;
+p.subTitle {
+    font-size: 1rem;
+    font-weight: 300;
+    text-align: center;
+    padding: 0 0 2rem 0;
+    letter-spacing: 0.1rem;
 }
 
 hr {
@@ -165,7 +162,14 @@ h2 {
     font-weight: 300;
     font-size: 3rem;
     text-align: center;
-    padding: 0 0 1.5rem 0;
+    padding: 0 0 1rem 0;
+}
+
+/* WRAP */
+
+.wrap {
+    padding: 4rem 0 0 0;
+    min-height: 70vh;
 }
 
 /* CONTAINER */
@@ -485,10 +489,6 @@ ul {
     padding-left: 1em;
 }
 
-ul li {
-    padding-left: 0.5em;
-}
-
 dl {
     margin: 0 0 2em 0;
 }
@@ -568,6 +568,7 @@ nav.header {
     font-size: 13pt;
     z-index: 100;
     padding: 0 2em;
+    border-bottom: 1px solid #dedede;
     overflow: hidden;
 }
 
@@ -605,14 +606,6 @@ nav.header > .menu > .mobileMenu {
 
 /* ANT DESIGN MODIFY */
 
-.app {
-    flex-direction: column;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-}
-
 .ant-form-item {
     display: flex;
     justify-content: center;
@@ -633,13 +626,14 @@ nav.header > .menu > .mobileMenu {
 .ant-menu-item-active,
 .ant-menu:not(.ant-menu-inline) .ant-menu-submenu-open,
 .ant-menu-submenu-active,
-.ant-menu-submenu-title:hover {
-    color: #000000;
-    border-bottom: 0;
-}
-
+.ant-menu-submenu-title:hover,
 .ant-menu-horizontal > .ant-menu-item:hover,
-.ant-menu-horizontal > .ant-menu-item-active {
+.ant-menu-horizontal > .ant-menu-item-active,
+.ant-menu-horizontal > .ant-menu-item-selected,
+.ant-menu-horizontal > .ant-menu-item-selected > a,
+.ant-menu-horizontal > .ant-menu-submenu-selected,
+.ant-menu-horizontal > .ant-menu-submenu:hover,
+.ant-menu-submenu-title:hover {
     color: #000000;
     border-bottom: 0;
 }
@@ -650,10 +644,29 @@ nav.header > .menu > .mobileMenu {
     cursor: pointer;
 }
 
-.ant-menu-horizontal > .ant-menu-submenu:hover,
-.ant-menu-submenu-title:hover {
+.ant-menu-item:active,
+.ant-menu-submenu-title:active,
+.ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected {
+    background: transparent;
+}
+
+.ant-menu-submenu-selected,
+.ant-menu-inline .ant-menu-item::after,
+li.ant-menu-item.ant-menu-item-selected,
+li.ant-menu-item.ant-menu-item-selected:focus,
+li.ant-menu-item.ant-menu-item-selected::after {
     color: #000000;
-    border-bottom: 0;
+    border-right: 0;
+}
+
+.ant-menu-submenu-inline > .ant-menu-submenu-title:hover .ant-menu-submenu-arrow::after,
+.ant-menu-submenu-inline > .ant-menu-submenu-title:hover .ant-menu-submenu-arrow::before {
+    background: -webkit-gradient(linear, left top, right top, from(#000000), to(#000000));
+  background: linear-gradient(to right, #000000, #000000);
+}
+
+.ant-menu-inline {
+    border: 0;
 }
 
 .ant-menu {

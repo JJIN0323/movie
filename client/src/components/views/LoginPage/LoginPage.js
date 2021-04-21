@@ -13,7 +13,7 @@ const formItemLayout = {
   },
   wrapperCol: {
     xs: { span: 24 },
-    sm: { span: 16 },
+    sm: { span: 8 },
   },
 };
 
@@ -91,13 +91,14 @@ function LoginPage(props) {
           <div className='container'>
 
             <div className='title'>Sign In</div>
+            <p className='subTitle'>Welcome to All movie information</p>
             <Form style={{ minWidth: '375px' }} {...formItemLayout} onSubmit={handleSubmit}>
 
               <Form.Item required>
                 <Input
                   id='email'
                   prefix={<Icon type='user' style={{ color: 'rgba(0,0,0,.25)' }} />}
-                  placeholder='　Enter your email'
+                  placeholder='　Email'
                   type='email'
                   value={values.email}
                   onChange={handleChange}
@@ -115,7 +116,7 @@ function LoginPage(props) {
                 <Input
                   id='password'
                   prefix={<Icon type='lock' style={{ color: 'rgba(0,0,0,.25)' }} />}
-                  placeholder='　Enter your password'
+                  placeholder='　Password'
                   type='password'
                   value={values.password}
                   onChange={handleChange}

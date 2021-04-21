@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
 const jwt = require('jsonwebtoken');
-const moment = require("moment");
+const moment = require('moment');
 
 const userSchema = mongoose.Schema({
     name: {
@@ -81,7 +81,7 @@ userSchema.statics.findByToken = function (token, cb) {
     var user = this;
 
     jwt.verify(token,'secret',function(err, decode){
-        user.findOne({"_id":decode, "token":token}, function(err, user){
+        user.findOne({'_id':decode, 'token':token}, function(err, user){
             if(err) return cb(err);
             cb(null, user);
         })
