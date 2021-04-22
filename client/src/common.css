@@ -1,6 +1,8 @@
 /* 2021-04-16 HYEJIN */
 
 @import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@100;200;300;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kosugi+Maru&display=swap');
 
 /* RESETS */
 
@@ -16,7 +18,7 @@ section, summary, time, mark, audio, video {
     font-size: 100%;
     font: inherit;
     vertical-align: baseline;
-    font-family: 'Work Sans', sans-serif;
+    font-family: 'Work Sans', 'Noto Sans KR', 'Kosugi Maru', sans-serif;
 }
 
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
@@ -60,7 +62,7 @@ html {
 }
 
 *, *:before, *:after {
-    font-family: 'Work Sans', sans-serif;
+    font-family: 'Work Sans', 'Noto Sans KR', 'Kosugi Maru', sans-serif;
     box-sizing: inherit;
 }
 
@@ -74,7 +76,7 @@ html, body {
 
 body, input, select, textarea {
     color: #282828;
-    font-family: 'Work Sans', sans-serif;
+    font-family: 'Work Sans', 'Noto Sans KR', 'Kosugi Maru', sans-serif;
     font-size: 11pt;
     font-weight: 400;
     line-height: 1.65;
@@ -749,11 +751,10 @@ li.ant-menu-item.ant-menu-item-selected::after {
     left: 0;
     right: 0;
     top: 60%;
+    max-height: 30rem;
     color: #ffffff;
     padding: 1.2rem 1.2rem;
     text-align: center;
-    text-overflow: ellipsis;
-    overflow: hidden;
     transition: all 0.20s linear 0s;
     -o-transition: all 0.20s linear 0s;
     -ms-transition: all 0.20s linear 0s;
@@ -764,6 +765,7 @@ li.ant-menu-item.ant-menu-item-selected::after {
     -ms-transform: translateY(-50%);
     -moz-transform: translateY(-50%);
     -webkit-transform: translateY(-50%);
+    overflow: hidden;
 }
 
 .description > p {
@@ -774,6 +776,7 @@ li.ant-menu-item.ant-menu-item-selected::after {
 .description > span {
     font-size: 0.8rem;
     font-weight: 300;
+    height: 30rem;
     letter-spacing: 0.1rem;
 }
 

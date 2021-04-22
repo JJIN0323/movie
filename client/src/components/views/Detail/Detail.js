@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { API_URL, API_KEY, IMAGE_URL } from '../../Config'
-import MovieTitle from './Sections/MovieTitle'
+import MovieInfo from './Sections/MovieInfo'
 
 function Detail(props) {
 
@@ -26,10 +26,10 @@ function Detail(props) {
     }, [])
 
     return (
-        <div className='contianer'>
+        <div className='container'>
             <div>
                 {/* Title & etc */}
-                <MovieTitle movie={Movie} />
+                <MovieInfo movie={Movie} />
             </div>
             <div>
                 {/* Movie Info */}

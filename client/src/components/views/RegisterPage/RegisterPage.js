@@ -93,7 +93,7 @@ function RegisterPage(props) {
         return (
           <div className='container'>
             <div className='title'>Sign Up</div>
-            <p className='subTitle'>Welcome to All movie reviews</p>
+            <p className='subTitle'>Signing up for an account is free and easy.</p>
             <Form style={{ minWidth: '375px' }} {...formItemLayout} onSubmit={handleSubmit} >
 
               <Form.Item required>
