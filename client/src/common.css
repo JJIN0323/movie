@@ -179,7 +179,6 @@ h2 {
 /* WRAP */
 
 .wrap {
-    padding: 4rem 0 0 0;
     min-height: 70vh;
 }
 
@@ -189,7 +188,7 @@ h2 {
     max-width: 90rem;
     min-height: 70vh;
     margin: 0 auto;
-    padding: 3rem 0 8rem 0;
+    padding: 7rem 0 8rem 0;
 }
 
 @media screen and (max-width: 1680px) {
@@ -475,19 +474,6 @@ input[type="radio"] + label:before {
     display: block;
 }
 
-.small {
-  width: 6rem;
-  height: auto;
-  padding-right: 0.25rem;
-}
-
-.small img {
-  width: auto;
-  height: auto;
-  max-width: 100%;
-  max-height: 100%;
-}
-
 /* LIST */
 
 ol {
@@ -737,11 +723,23 @@ li.ant-menu-item.ant-menu-item-selected::after {
   align-items: center;
   height: 35em;
   overflow: hidden;
-  background: rgba(185, 173, 157, 0.3);
 }
 
 .GridItem > .GridItemImg > a > img {
     width: 22.5rem !important;
+}
+
+.GridItem > .GridItemCast {
+    display: flex;
+    -webkit-justify-content: center;
+    -moz-justify-content: center;
+    -ms-justify-content: center;
+    justify-content: center;
+    -webkit-align-items: center;
+    -moz-align-items: center;
+    -ms-align-items: center;
+    align-items: center;
+    overflow: hidden;
 }
 
 /* Grid Image Hover animation */
@@ -804,262 +802,47 @@ li.ant-menu-item.ant-menu-item-selected::after {
     top: 50%;
 }
 
-/* BLOG - POST COLUMN */
+/* MOVIE INFO // */
 
-.postItem {
+.table-wrapper {
+    -webkit-overflow-scrolling: touch;
+    overflow-x: auto;
+}
+
+table {
     width: 100%;
-    margin-bottom: 3em;
 }
 
-.postItem:hover {
-    cursor: pointer;
+    table tbody tr {
+    }
+
+    table td {
+        padding: 0.75rem 0.75rem;
+    }
+
+    table th {
+        font-size: 0.8rem;
+        font-weight: 900;
+        letter-spacing: 0.075em;
+        line-height: 1.5;
+        padding: 0 0.75rem 0.75rem 0.75rem;
+        text-align: left;
+        text-transform: uppercase;
+    }
+
+        @media screen and (max-width: 980px) {
+
+            table th {
+                font-size: 0.9rem;
+            }
+
+        }
+
+table tbody tr {
 }
 
-.postItem > .postItemImg {
-    display: flex;
-    -webkit-justify-content: center;
-    -moz-justify-content: center;
-    -ms-justify-content: center;
-    justify-content: center;
-    -webkit-align-items: center;
-    -moz-align-items: center;
-    -ms-align-items: center;
-    align-items: center;
-    height: 10em;
-    overflow: hidden;
-    background: rgba(185, 173, 157, 0.3);
-}
-
-.postItem > .postItemImg > img {
-    width: 100%;
-    transform: scale(1) translateY(0px);
-    transition: all 300ms ease;
-}
-
-.postItem > .postItemText {
-    padding: 0.5em 0;
-    text-align: left;
-    transform: translateY(0px);
-    transition: all 300ms ease;
-}
-
-.postItem > .postItemText > span.title {
-    display: block;
-    font-weight: bold;
-    font-size: 11pt;
-    line-height: 2rem;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    overflow: hidden;
-}
-
-.postItem > .postItemText > div.ellipsis {
-    height: 2.5rem;
-    font-size: 9pt;
-    overflow: hidden;
-}
-
-.postItem > .postItemText > div.hashtag {
-    font-size: 8pt;
-    color: #916f54;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    overflow: hidden;
-}
-
-.postItem > .postItemText > div.hashtag::before {
-    content: '\f292';
-    padding-right: 0.5rem;
-}
-
-/* VIEW - POST CONTENTS */
-
-.postTitle {
-    padding: 1em 0;
-    margin-bottom: 2em;
-    border-top: 1px solid #cccccc;
-    border-bottom: 1px solid #cccccc;
-}
-
-.postTitle h2 {
-    font-size: 1.2em;
-    font-weight: 800;
-    line-height: 2em;
-    letter-spacing: -0.02em;
-    color: #333333;
-    margin: 0;
-}
-
-.postTitle span {
-    font-size: 0.7em;
-    color: #333333;
-    letter-spacing: -0.02em;
-}
-
-.postImage {
-    width: 100%;
-    height: 100%;
-}
-
-.postImage img {
-    width: auto;
-    height: auto;
-    max-width: 100%;
-    max-height: 100%;
-}
-
-.postContents {
-    width: 100%;
-    padding: 1em 0 2em 0;
-    overflow: hidden;
-    border-bottom: 1px solid #cccccc;
-}
-
-.postHashtag {
-    width: 100%;
-    padding: 1em 0;
-    overflow: hidden;
-    border-bottom: 1px solid #cccccc;
-}
-
-.postHashtag > span {
-    text-align: left;
-    color: #916f54;
-    font-size: 9pt;
-}
-
-.postHashtag > span::before {
-    content: '\f292';
-    padding-right: 0.5rem;
-}
-
-.postHashtag > button {
-    width: 20%;
-    float: right;
-}
-
-.postHashtag > button + button {
-    margin-right: 1rem;
-}
-
-.postComments {
-    width: 100%;
-    padding: 1em 0;
-    text-align: right;
-}
-
-.postComments h3 {
-    font-size: 1em;
-    font-weight: 800;
-    letter-spacing: -0.02em;
-    color: #333333;
-    text-align: left;
-    padding: 1em 0;
-    margin: 0;
-}
-
-.postComments .row {
-    margin-bottom: 1em;
-}
-
-.postComments > form * > textarea {
-    margin-top: 1em;
-}
-
-.postCommentList {
-    width: 100%;
-    padding: 1em 0;
-}
-
-.postCommentList ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-.postCommentList ul li {
-    padding: 0.5em 0;
-}
-
-.postCommentList ul li .commentContents {
-    display: flex;
-    align-items: center;
-    line-height: 1.2em;
-    padding-top: 0.3em;
-}
-
-.postCommentList ul li .commentContents span {
-    font-size: 0.7em;
-    color: #7b7b7a;
-    padding-left: 0.5em;
-    text-transform: uppercase;
-}
-
-
-/* VIEW - SIDEBAR */
-
-.latestList {
-    list-style: none;
-}
-
-.latestList h5 {
-    font-weight: bold;
-    text-align: center;
-    letter-spacing: 0.3em;
-    padding-bottom: 0.5em;
-    text-transform: uppercase;
-}
-
-.latestList li {
-    font-size: 0.8em;
-    color: #7b7b7a;
-    padding: 0 0 0.5em 0;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
-    cursor: pointer;
-}
-
-/* WIRTE - CONTENTS */
-
-.wirteWrap h2 {
-    font-size: 1.5em;
-    font-weight: bold;
-    text-transform: uppercase;
-}
-
-.wirteContents {
-    padding: 0.7em 0;
-}
-
-.wirteTitle {
-    font-weight: bold;
-    padding-bottom: 0.5em;
-}
-
-.wirteTitle::before {
-    content: '\f292';
-    color: #916f54;
-    font-weight: normal;
-    padding-right: 0.7em;
-}
-
-.wirteContents .imgUpload {
-    display: inline-block;
-}
-
-.wirteContents .imgUpload input[type="file"] {
-    display: none;
-}
-
-.wirteContents .imgUpload label {
-    width: 1em;
-    height: 1em;
-    font-size: 1.2em;
-    letter-spacing: 1px;
-    text-align: center;
-    color: #916f54;
-    cursor: pointer;
+table th {
+    color: #282828;
 }
 
 /* FOOTER */

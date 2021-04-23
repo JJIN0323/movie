@@ -6,29 +6,46 @@ function GridImage(props) {
     // Hover event
     const [isShow, setIsShow] = useState(false);
 
-    return (
-        <Col lg={6} md={8} xs={24}>
-            
-            <div className='GridItem' 
-                onMouseOver={() => setIsShow(true)} 
-                onMouseLeave={() => setIsShow(false)}>
-
-                <div className='GridItemImg'>
-                    <a href={`/movie/${props.movieId}`} >
-                        {isShow &&( 
-                            <div className='overlay'>
-                                <div className='description'>
-                                    <p>{`${props.movieName}`}</p>
-                                    <span>{`${props.movieDescription}`}</span>
+    if (props.landingPage) {
+        return (
+            <Col lg={6} md={8} xs={24}>
+                
+                <div className='GridItem' 
+                    onMouseOver={() => setIsShow(true)} 
+                    onMouseLeave={() => setIsShow(false)}>
+    
+                    <div className='GridItemImg'>
+                        <a href={`/movie/${props.movieId}`} >
+                            {isShow &&( 
+                                <div className='overlay'>
+                                    <div className='description'>
+                                        <p>{`${props.movieName}`}</p>
+                                        <span>{`${props.movieDescription}`}</span>
+                                    </div>
                                 </div>
-                            </div>
-                        )}
-                        <img src={props.image} alt={props.movieName} />
-                    </a>
+                            )}
+                            <img src={props.image} alt={props.movieName} />
+                        </a>
+                    </div>
                 </div>
-            </div>
-        </Col>
-    )
+            </Col>
+        )
+    } else {
+        return (
+            <Col lg={4} md={8} xs={24}>
+                
+                <div className='GridItem'>
+    
+                    <div className='GridItemCast'>
+                        <div className='description'>
+                            <p>{`${props.castName}`}</p>
+                        </div>
+                        <img src={props.image} alt={props.castName} />
+                    </div>
+                </div>
+            </Col>
+        )
+    }
 }
 
 export default GridImage

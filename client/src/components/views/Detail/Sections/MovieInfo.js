@@ -1,23 +1,47 @@
 import React from 'react'
-import { Descriptions } from 'antd'
+import { IMAGE_URL } from '../../../Config'
 
 function MovieInfo(props) {
 
     let {movie} = props
 
     return (
+        <>
+        <div className='floatLeft'>
+            <img src={movie.poster_path ? `${IMAGE_URL}w200${movie.poster_path}` : null} />
+        </div>
 
-        <Descriptions>
-            <Descriptions.Item label='image'><img src={movie.image} alt={movie.original_title} /></Descriptions.Item>
-            <Descriptions.Item label='Title'>{movie.original_title}</Descriptions.Item>
-            <Descriptions.Item label='Relese Date'>{movie.release_date}</Descriptions.Item>
-            <Descriptions.Item label='Revenue'>{movie.revenue}</Descriptions.Item>
-            <Descriptions.Item label='Runtime'>{movie.runtime}</Descriptions.Item>
-            <Descriptions.Item label='Vote Average' span={2}>{movie.vote_average}</Descriptions.Item>
-            <Descriptions.Item label='Vote Count'>{movie.vote_count}</Descriptions.Item>
-            <Descriptions.Item label='Status'>{movie.status}</Descriptions.Item>
-            <Descriptions.Item label='Popularity'>{movie.popularity}</Descriptions.Item>
-        </Descriptions>
+        <div className=''>
+        <table>
+            <tbody>
+                <tr>
+                    <td>Title</td>
+                    <td>{movie.original_title}</td>
+                    <td>Relese Date</td>
+                    {/* 장르 뿌려줄땐 array.map() 메서드를 이용해서 뿌려줘야함 */}
+                    <td>{movie.release_date}</td>
+                </tr>
+                <tr>
+                    <td>Runtime</td>
+                    <td>{movie.runtime}</td>
+                    <td>Status</td>
+                    <td>{movie.status}</td>
+                </tr>
+                <tr>
+                    <td>Vote Average</td>
+                    <td>{movie.vote_average}</td>
+                    <td>Popularity</td>
+                    <td>{movie.popularity}</td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+
+        <div>
+            {/* short overview */}
+            {movie.overview}
+        </div>
+        </>
     )
 }
 
