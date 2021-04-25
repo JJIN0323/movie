@@ -62,11 +62,11 @@ function LoginPage(props) {
                 }
                 props.history.push('/')
               } else {
-                setFormErrorMessage('Check out your Account or Password again')
+                setFormErrorMessage('Check out your Account or Password again.')
               }
             })
             .catch(err => {
-              setFormErrorMessage('Check out your Account or Password again')
+              setFormErrorMessage('Check out your Account or Password again.')
               setTimeout(() => {
                 setFormErrorMessage('')
               }, 3000)
@@ -131,14 +131,16 @@ function LoginPage(props) {
               </Form.Item>
 
               {formErrorMessage && (
-                <label ><p style={{ color: '#ff0000bf', fontSize: '0.7rem', border: '1px solid', padding: '1rem', borderRadius: '10px' }}>{formErrorMessage}</p></label>
+                <label className='error'>{formErrorMessage}</label>
               )}
 
-              <Form.Item>
+              <Form.Item>              
                 <Checkbox id='rememberMe' onChange={handleRememberMe} checked={rememberMe} >Remember me</Checkbox>
+                {/*
                 <a className='login-form-forgot' href='/reset_user' style={{ float: 'right' }}>
                   forgot password
                   </a>
+                */}
                 <div>
                   <Button className='yellowButton' htmlType='submit' disabled={isSubmitting} onSubmit={handleSubmit}>
                     SIGNIN

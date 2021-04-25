@@ -4,7 +4,7 @@ import { Col } from 'antd'
 function GridImage(props) {
 
     // Hover event
-    const [isShow, setIsShow] = useState(false);
+    const [isShow, setIsShow] = useState(false)
 
     if (props.landingPage) {
         return (

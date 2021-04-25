@@ -1,2 +1,4 @@
 - 로고 추가
 - CSS 추가 및 andtd css 일부 수정
+- Movie DB 추가
+- Detail 페이지 수정

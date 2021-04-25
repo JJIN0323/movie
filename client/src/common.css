@@ -191,6 +191,12 @@ h2 {
     padding: 7rem 0 8rem 0;
 }
 
+.containerSmall {
+    max-width: 90rem;
+    margin: 0 auto;
+    padding: 3rem 0 4rem 0;
+}
+
 @media screen and (max-width: 1680px) {
 
     .container {
@@ -258,6 +264,14 @@ label {
     font-size: 0.9em;
     font-weight: 300;
     margin: 0 0 0.3em 0;
+}
+
+label.error {
+    color: #bd3b3b;
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: center;
+    padding: 0.5rem 0;
 }
 
 input[type="text"],
@@ -721,12 +735,13 @@ li.ant-menu-item.ant-menu-item-selected::after {
   -moz-align-items: center;
   -ms-align-items: center;
   align-items: center;
-  height: 35em;
+  height: 30rem;
   overflow: hidden;
 }
 
 .GridItem > .GridItemImg > a > img {
     width: 22.5rem !important;
+    height: 31rem;
 }
 
 .GridItem > .GridItemCast {
@@ -749,7 +764,7 @@ li.ant-menu-item.ant-menu-item-selected::after {
     left: 0;
     right: 0;
     top: 60%;
-    max-height: 30rem;
+    max-height: 28rem;
     color: #ffffff;
     padding: 1.2rem 1.2rem;
     text-align: center;
@@ -774,7 +789,7 @@ li.ant-menu-item.ant-menu-item-selected::after {
 .description > span {
     font-size: 0.8rem;
     font-weight: 300;
-    height: 30rem;
+    height: 28rem;
     letter-spacing: 0.1rem;
 }
 
@@ -802,48 +817,58 @@ li.ant-menu-item.ant-menu-item-selected::after {
     top: 50%;
 }
 
-/* MOVIE INFO // */
+/* DETAIL - MOVIE INFO */
 
-.table-wrapper {
-    -webkit-overflow-scrolling: touch;
-    overflow-x: auto;
-}
 
-table {
+.movieInfoBg {
+    position: absolute;
     width: 100%;
+    height: 38rem;
+    background-repeat: no-repeat !important;
+    background-position: top center !important;
+    background-size: cover !important;
+    overflow: hidden;
 }
 
-    table tbody tr {
-    }
-
-    table td {
-        padding: 0.75rem 0.75rem;
-    }
-
-    table th {
-        font-size: 0.8rem;
-        font-weight: 900;
-        letter-spacing: 0.075em;
-        line-height: 1.5;
-        padding: 0 0.75rem 0.75rem 0.75rem;
-        text-align: left;
-        text-transform: uppercase;
-    }
-
-        @media screen and (max-width: 980px) {
-
-            table th {
-                font-size: 0.9rem;
-            }
-
-        }
-
-table tbody tr {
+.movieInfoMask {
+    position: absolute;
+    width: 100%;
+    height: 38rem;
+    background: linear-gradient(to right,#0f0f0f 20%,rgb(15 15 15 / 50%) 50%,#0f0f0f 80%);
 }
 
-table th {
-    color: #282828;
+.movieInfoDetail {
+    position: relative;
+    display: flex;
+    flex-direction: column-reverse;
+    -moz-flex-direction: column-reverse;
+    -ms-flex-direction: column-reverse;
+    -webkit-flex-direction: column-reverse;
+    max-width: 90rem;
+    height: 38rem;
+    margin: 0 auto;
+    padding: 3rem 0;
+    z-index: 9;
 }
+
+dl.movieInfo {
+    list-style: none;
+    display: table-row;
+    font-size: 1.1rem;
+    font-weight: 300;
+}
+
+dl.movieInfo dd {
+    display: table-cell;
+    color: #adadad;
+    font-weight: 400;
+    padding: 0.4rem 1.8rem;
+}
+
+dl.movieInfo dt:first-child {
+    color: #adadad;
+}
+
 
 /* FOOTER */
 

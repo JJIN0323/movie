@@ -36,16 +36,15 @@ function Detail(props) {
     }, [])
 
     return (
-        <div className='container'>
-            <div>
-                {/* Movie Info */}
-                <MovieInfo movie={Movie} />
-            </div>
-            <div>
-                {/* Actors Grid - limit 12 */}
+        <>
+            {/* Movie Info */}
+            <MovieInfo movie={Movie} />
 
+            <div className='containerSmall'>
+                {/* Actors Grid - limit 6 */}
+                <p className='subTitle'>Cast</p>
                 <Row className='paddingTop'>
-                    {Casts && Casts.slice(0, 12).map((cast, index) => (
+                    {Casts && Casts.slice(0, 6).map((cast, index) => (
                         <React.Fragment key={index}>
                             <GridImage
                                 image={cast.profile_path ?
@@ -55,10 +54,7 @@ function Detail(props) {
                         ))}
                     </Row>
             </div>
-            <div>
-                
-            </div>
-        </div>
+        </>
     )
 }
 
