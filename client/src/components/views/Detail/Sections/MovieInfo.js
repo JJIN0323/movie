@@ -1,5 +1,6 @@
 import React from 'react'
 import { IMAGE_URL } from '../../../Config'
+import FavoriteBtn from './FavoriteBtn'
 
 function MovieInfo(props) {
 
@@ -40,12 +41,18 @@ function MovieInfo(props) {
                     <dt>Popularity</dt>
                     <dd>{movie.popularity}</dd>
                 </dl>
+                <dl className='movieInfo'>
+                    <dt>Favorite</dt>
+                    <dd><FavoriteBtn movieInfo={movie} movieId={movie.id} userFrom={localStorage.getItem('userId')} /></dd>
+                </dl>
             </div>
         </div>
 
             <div className='containerSmall'>
-                <p className='subTitle'>Overview</p>
-                {movie.overview}
+                <p className='subject'>Overview</p>
+                    <div className='paddingTop'>
+                        <p className='overview'>{movie.overview}</p>
+                    </div>
             </div>
         </>
     )

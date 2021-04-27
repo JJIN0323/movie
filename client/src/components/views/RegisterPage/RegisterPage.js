@@ -83,12 +83,12 @@ function RegisterPage(props) {
           values,
           touched,
           errors,
-          dirty,
+          //dirty,
           isSubmitting,
           handleChange,
           handleBlur,
-          handleSubmit,
-          handleReset,
+          handleSubmit
+          //handleReset,
         } = props
         return (
           <div className='container'>

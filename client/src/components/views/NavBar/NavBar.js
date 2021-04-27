@@ -6,6 +6,7 @@ import logo from './logo.png'
 import './Sections/Navbar.css'
 
 function NavBar() {
+
   const [visible, setVisible] = useState(false)
 
   const showDrawer = () => {
@@ -14,7 +15,7 @@ function NavBar() {
 
   const onClose = () => {
     setVisible(false)
-  }
+  } 
 
   return (
     <nav className='header'>

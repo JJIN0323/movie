@@ -35,13 +35,10 @@ function GridImage(props) {
             <Col lg={4} md={8} xs={24}>
                 
                 <div className='GridItem'>
-    
                     <div className='GridItemCast'>
-                        <div className='description'>
-                            <p>{`${props.castName}`}</p>
-                        </div>
                         <img src={props.image} alt={props.castName} />
                     </div>
+                    <p className='castName'>{`${props.castName}`}</p>
                 </div>
             </Col>
         )
