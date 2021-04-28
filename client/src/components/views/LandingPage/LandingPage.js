@@ -9,8 +9,12 @@ function LandingPage() {
     const [CurrentPage, setCurrentPage] = useState(0)
 
     useEffect(() => {
-
         const endpoint = `${API_URL}movie/popular?api_key=${API_KEY}&language=en-US&page=1`
+        fetchMovies(endpoint)
+    }, [])
+
+    // endpoint만 바뀌기 때문에, endpoint는 파라메터로 넘기고 나머지만
+    const fetchMovies = (endpoint) => {
 
         fetch(endpoint)
         .then(response => response.json())
@@ -21,13 +25,6 @@ function LandingPage() {
             setMovies([...Movies, ...response.results]) 
             setCurrentPage(response.page)
         })
-        
-    }, [])
-
-    // endpoint만 바뀌기 때문에, endpoint는 파라메터로 넘기고 나머지만
-    const fetchMovies = (endpoint) => {
-
-        
     }
 
     const loadMoreImage = () => {

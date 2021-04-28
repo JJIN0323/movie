@@ -12,4 +12,4 @@
 /build
 
 # secret
-Config.js
+src/components/Config.js
