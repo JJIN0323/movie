@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { IMAGE_URL } from '../../Config'
+import { Row, Col } from 'antd'
 import axios from 'axios'
 
 function FavoritePage() {
@@ -19,7 +20,7 @@ function FavoritePage() {
                 //console.log(response.data)
                 setFavorites(response.data.favorites)
             } else {
-                alert('fail')
+                alert('List Loading Fail.')
             }
         })
     }
@@ -36,36 +37,33 @@ function FavoritePage() {
                 FavoritedList() // 다시 한번 불러와서 리프레시 시키는 방법.
                                 // 이것보다는 id값을 찾아서 지워주는게 효율적
             } else {
-                alert('fail')
+                alert('Remove Fail.')
             }
         })
     }
 
     const listRender = Favorites.map((favorite, index) => {
-        return <tr key={index}>
-                <td>{favorite.moviePoster ?
-                    <img src={`${IMAGE_URL}w200${favorite.moviePoster}`} /> : null}</td>
-                <td>{favorite.movieTitle}</td>
-                <td>{favorite.movieRunTime} mins</td>
-                <td><button onClick={() => onClickRemove(favorite.movieId, favorite.userFrom)}>Remove</button></td>
-               </tr>
+        return (
+        <Col lg={4} md={8} xs={24} key={index}>
+            <div className='favoriteItem'>
+                <a href={`/movie/${favorite.movieId}`}>
+                    {favorite.moviePoster ?
+                    <img src={`${IMAGE_URL}w200${favorite.moviePoster}`} alt={favorite.movieTitle} /> : null}
+                </a>
+                    <p className='title'>{favorite.movieTitle}</p>
+                    <p>Runtime : {favorite.movieRunTime} mins</p>
+                    <button className='yellowButton' onClick={() => onClickRemove(favorite.movieId, favorite.userFrom)}>Remove</button>
+            </div>
+           </Col>
+           )
         })
 
     return (
         <div className='container'>
-            <table>
-                <thead>
-                    <tr>
-                        <td>POSTER</td>
-                        <td>TITLE</td>
-                        <td>RUNTIME</td>
-                        <td>FAVORITE</td>
-                    </tr>
-                </thead>
-                <tbody>
-                    {listRender}
-                </tbody>
-            </table>
+            <p className='subject'>Favorite List</p>
+            <Row className='paddingTop'>
+                {listRender}
+            </Row>
         </div>
     )
 }

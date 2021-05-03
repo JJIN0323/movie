@@ -4,6 +4,7 @@ const { User } = require('../models/User')
 
 const { auth } = require('../middleware/auth')
 
+// 인증 성공시 보낼 데이터
 router.get('/auth', auth, (req, res) => {
     res.status(200).json({
         _id: req.user._id,
@@ -17,6 +18,7 @@ router.get('/auth', auth, (req, res) => {
     })
 })
 
+// 회원가입
 router.post('/register', (req, res) => {
 
     const user = new User(req.body)
@@ -29,6 +31,8 @@ router.post('/register', (req, res) => {
     })
 })
 
+
+// 로그인
 router.post('/login', (req, res) => {
     User.findOne({ email: req.body.email }, (err, user) => {
         if (!user)
@@ -37,10 +41,13 @@ router.post('/login', (req, res) => {
                 message: 'Auth failed, email not found'
             })
 
+        // 비밀번호가 맞는지 체크
+
         user.comparePassword(req.body.password, (err, isMatch) => {
             if (!isMatch)
                 return res.json({ loginSuccess: false, message: 'Wrong password' })
 
+            // 토큰 생성
             user.generateToken((err, user) => {
                 if (err) return res.status(400).send(err)
                 res.cookie('w_authExp', user.tokenExp)
@@ -55,6 +62,8 @@ router.post('/login', (req, res) => {
     })
 })
 
+
+// 로그아웃. 토큰을 지워줌으로서 로그아웃 시킴
 router.get('/logout', auth, (req, res) => {
     User.findOneAndUpdate({ _id: req.user._id }, { token: '', tokenExp: '' }, (err, doc) => {
         if (err) return res.json({ success: false, err })

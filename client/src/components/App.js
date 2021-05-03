@@ -1,7 +1,6 @@
 import React, { Suspense } from 'react'
 import { Route, Switch } from 'react-router-dom'
 import Auth from '../hoc/auth'
-// pages for this product
 import LandingPage from './views/LandingPage/LandingPage'
 import FavoritePage from './views/FavoritePage/FavoritePage'
 import LoginPage from './views/LoginPage/LoginPage'
@@ -10,9 +9,9 @@ import NavBar from './views/NavBar/NavBar'
 import Footer from './views/Footer/Footer'
 import Detail from './views/Detail/Detail'
 
-//null   Anyone Can go inside
-//true   only logged in user can go inside
-//false  logged in user can't go inside
+// null  누구나 접속 가능한 페이지
+// true  로그인한 사용자만 들어갈 수 있는 페이지
+// false 로그인한 사용자는 들어갈 수 없는 페이지
 
 function App() {
   return (

@@ -21,7 +21,7 @@ const formItemLayout = {
     sm: { span: 8 },
   },
 }
-const tailFormItemLayout = {
+const buttonLayout = {
   wrapperCol: {
     xs: { span: 24 },
     sm: { span: 8 },
@@ -183,7 +183,7 @@ function RegisterPage(props) {
                 )}
               </Form.Item>
 
-              <Form.Item {...tailFormItemLayout}>
+              <Form.Item {...buttonLayout}>
                 <Button onClick={handleSubmit} className='yellowButton' disabled={isSubmitting}>
                   SUBMIT
                 </Button>

@@ -254,6 +254,10 @@ p.castName {
     margin-top: 3rem;
 }
 
+.displayFlex {
+    display: flex;
+}
+
 /* FORM */
 
 form {
@@ -776,7 +780,7 @@ li.ant-menu-item.ant-menu-item-selected::after {
     height: 31rem;
 }
 
-.GridItem > .GridItemCast {
+.GridItem > .GridItemRow {
     display: flex;
     -webkit-justify-content: center;
     -moz-justify-content: center;
@@ -847,7 +851,6 @@ li.ant-menu-item.ant-menu-item-selected::after {
 
 /* DETAIL - MOVIE INFO */
 
-
 .movieInfoBg {
     position: absolute;
     width: 100%;
@@ -895,6 +898,36 @@ dl.movieInfo dd {
 
 dl.movieInfo dt:first-child {
     color: #adadad;
+}
+
+/* FAVORITE PAGE */
+
+.favoriteItem {
+    padding: 1rem 1.5rem;
+}
+
+.favoriteItem .heart {
+    font-size: 1.5rem;
+    color: #bd3b3b;
+}
+
+.favoriteItem > p.title {
+    font-size: 1rem;
+    font-weight: 400;
+    text-align: center;
+    padding: 0.5rem 0 0.2rem 0;
+    color: #777777;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.favoriteItem > p {
+    font-size: 0.8rem;
+    font-weight: 300;
+    text-align: center;
+    padding: 0 0 0.5rem 0;
+    color: #414141;
 }
 
 /* FOOTER */
