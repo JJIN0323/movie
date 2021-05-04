@@ -43,7 +43,7 @@ function MovieInfo(props) {
                 </dl>
                 <dl className='movieInfo'>
                     <dt>Favorite</dt>
-                    <dd><FavoriteBtn movieInfo={movie} movieId={movie.id} userFrom={localStorage.getItem('userId')} /></dd>
+                    <dd><FavoriteBtn movieInfo={movie} movieId={movie.id} userTo={movie.id} userFrom={localStorage.getItem('userId')} /></dd>
                 </dl>
             </div>
         </div>

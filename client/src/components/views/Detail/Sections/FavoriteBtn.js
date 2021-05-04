@@ -5,6 +5,7 @@ import { Icon, Popover } from 'antd'
 function FavoriteBtn(props) {
 
     const movieId = props.movieId
+    const userTo = props.userTo
     const userFrom = props.userFrom
     const movieTitle = props.movieInfo.title
     const moviePoster = props.movieInfo.poster_path
@@ -13,9 +14,10 @@ function FavoriteBtn(props) {
     const [Count, setCount] = useState(0)
     const [Counted, setCounted] = useState(false)
 
-    //console.log(movieId, userFrom)
+    //console.log(userTo, userFrom)
 
     let info = { // Favorite Schema에서 가져올 정보들
+        userTo,
         userFrom,
         movieId,
         movieTitle,
@@ -47,6 +49,7 @@ function FavoriteBtn(props) {
     }, [])
 
     const onClickFavorite = () => {
+
         if (Counted) {
             axios.post('/api/favorite/removeFromFavorite', info)
             .then(response => {

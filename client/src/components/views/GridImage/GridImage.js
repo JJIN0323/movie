@@ -8,7 +8,7 @@ function GridImage(props) {
 
     if (props.landingPage) {
         return (
-            <Col lg={6} md={8} xs={24}>
+            <Col xl={6} lg={8} md={12} xs={24}>
                 
                 <div className='GridItem' 
                     onMouseOver={() => setIsShow(true)} 

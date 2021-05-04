@@ -109,6 +109,7 @@ blockquote {
 	padding: 1rem 0 1rem 2rem;
     border-left: solid 0.5rem;
     border-left-color: rgba(144, 144, 144, 0.25);
+    margin: 0 1rem 0 0;
 }
 
 strong, b {
@@ -137,19 +138,12 @@ p.subject {
     letter-spacing: 0.1rem;
 }
 
-p.subject::before {
-    content: '- ';
-}
-
-p.subject::after {
-    content: ' -';
-}
-
 p.overview {
     font-size: 1.2rem;
     font-weight: 300;
     text-align: center;
     color: #000000;
+    padding: 0 1rem;
 }
 
 p.castName {
@@ -176,6 +170,14 @@ p.castName {
     text-align: center;
     padding: 0;
     letter-spacing: 0.1rem;
+}
+
+@media screen and (max-width: 480px) {
+    .thinTitle {
+        font-size: 2rem;
+        font-weight: 200;
+        letter-spacing: 0;
+    }    
 }
 
 /* WRAP */
@@ -878,7 +880,7 @@ li.ant-menu-item.ant-menu-item-selected::after {
     max-width: 90rem;
     height: 38rem;
     margin: 0 auto;
-    padding: 3rem 0;
+    padding: 3rem 1.2rem;
     z-index: 9;
 }
 
@@ -900,15 +902,27 @@ dl.movieInfo dt:first-child {
     color: #adadad;
 }
 
+@media screen and (max-width: 480px) {
+    dl.movieInfo {
+        display: block;
+        font-size: 0.9rem;
+        margin: 0.5rem 0;
+    }
+
+    dl.movieInfo dd {
+        padding: 0.4rem 0;
+    }
+}
+
 /* FAVORITE PAGE */
 
 .favoriteItem {
-    padding: 1rem 1.5rem;
+    padding: 2rem 1.5rem;
 }
 
-.favoriteItem .heart {
-    font-size: 1.5rem;
-    color: #bd3b3b;
+.favoriteItem img {
+    width: 100%;
+    max-width: 19.5rem;
 }
 
 .favoriteItem > p.title {
@@ -934,6 +948,7 @@ dl.movieInfo dt:first-child {
 
 .footer {
     text-align: center;
+    margin: 2rem 0 0 0;
     padding: 5rem 0;
     color: #999999;
     background: #282828;

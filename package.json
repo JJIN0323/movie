@@ -1,7 +1,7 @@
 {
   "name": "example",
   "version": "1.0.0",
-  "description": "node express mongoDB",
+  "description": "Movie DB",
   "main": "index.js",
   "engine": {
     "node": "10.16.0",

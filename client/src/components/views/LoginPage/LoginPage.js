@@ -92,7 +92,7 @@ function LoginPage(props) {
 
             <div className='title'>Sign In</div>
             <p className='subTitle'>If you do not have an account,<br/> registering for an account is free and simple.</p>
-            <Form style={{ minWidth: '375px' }} {...formItemLayout} onSubmit={handleSubmit}>
+            <Form style={{ minWidth: '290px' }} {...formItemLayout} onSubmit={handleSubmit}>
 
               <Form.Item required>
                 <Input

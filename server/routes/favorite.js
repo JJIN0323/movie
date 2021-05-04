@@ -6,7 +6,7 @@ const { Favorite } = require('../models/Favorite')
 router.post('/count', (req, res) => {
 
     // MongoDB에서 favorite 카운트 가져옴
-    Favorite.find({'movieId': req.body.movieId})
+    Favorite.find({ 'movieId' : req.body.movieId })
     .exec((err, info) => { // 쿼리 시작
         if (err) return res.status(400).send(err)
 
@@ -15,14 +15,14 @@ router.post('/count', (req, res) => {
             success: true,
             count: info.length
         })
-    }) 
+    })
 })
 
 // 좋아요 ♥ 상태
 router.post('/counted', (req, res) => {
 
     // 나의 Favorite List에 있는지 DB에서 확인
-    Favorite.find({'movieId': req.body.movieId, 'userFrom': req.body.userFrom})
+    Favorite.find({ 'movieId' : req.body.movieId, 'userFrom' : req.body.userFrom })
     .exec((err, info) => {
         if (err) return res.status(400).send(err)
 
@@ -36,8 +36,7 @@ router.post('/counted', (req, res) => {
             success: true,
             counted: result
         })
-        //console.log(counted)
-    }) 
+    })
 })
 
 // 좋아요 추가
@@ -47,10 +46,13 @@ router.post('/addToFavorite', (req, res) => {
     const addFavorite = new Favorite(req.body)
 
     addFavorite.save((err, doc) => {
-        if (err) return res.status(400).send(err)
-            //console.log('Add ', doc)
+        if (err) return res.json({ 
+            success: false,
+            err
+        })
+        //console.log(addFavorite)
         return res.status(200).json({
-            success: true, doc
+            success: true
         })
     }) 
 })
@@ -59,12 +61,15 @@ router.post('/addToFavorite', (req, res) => {
 // 좋아요 취소
 router.post('/removeFromFavorite', (req, res) => {
 
-    Favorite.findOneAndDelete({movieId: req.body.movieId, userFrom: req.body.userFrom})
+    Favorite.findOneAndDelete({ movieId : req.body.movieId, userFrom : req.body.userFrom })
     .exec((err, doc) => {
-        if(err) return res.status(400).send(err)
+        if(err) return res.status(400).json({
+            success: false,
+            err
+        })
             //console.log('Remove ', doc)
         return res.status(200).json({
-            success: true, doc
+            success: true
         })
     })
 })
@@ -94,6 +99,6 @@ router.post('/removeFavoriteList', (req, res) => {
             doc
         })
     })
-})
+}) 
 
 module.exports = router

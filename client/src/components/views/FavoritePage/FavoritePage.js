@@ -44,11 +44,11 @@ function FavoritePage() {
 
     const listRender = Favorites.map((favorite, index) => {
         return (
-        <Col lg={4} md={8} xs={24} key={index}>
+        <Col xl={6} lg={8} md={12} xs={24} key={index}>
             <div className='favoriteItem'>
                 <a href={`/movie/${favorite.movieId}`}>
                     {favorite.moviePoster ?
-                    <img src={`${IMAGE_URL}w200${favorite.moviePoster}`} alt={favorite.movieTitle} /> : null}
+                    <img src={`${IMAGE_URL}w400${favorite.moviePoster}`} alt={favorite.movieTitle} /> : null}
                 </a>
                     <p className='title'>{favorite.movieTitle}</p>
                     <p>Runtime : {favorite.movieRunTime} mins</p>

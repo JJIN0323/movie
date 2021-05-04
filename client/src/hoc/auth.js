@@ -31,7 +31,7 @@ export default function authentication(SpecificComponent, option, adminRoute = n
                 }
             })
 
-        }, [])
+        }, [dispatch, props.history, user.googleAuth])
 
         return (
             <SpecificComponent {...props} user={user} />

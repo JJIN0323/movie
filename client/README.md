@@ -2,3 +2,4 @@
 - CSS 추가 및 andtd css 일부 수정
 - Movie DB 추가
 - Detail 페이지 리뷰/출연진 추가
+- Responsive 수정
